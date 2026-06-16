@@ -1,0 +1,93 @@
+/* modules/dashboard/dashboard.css */
+.dashboard-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.chart-box {
+    background-color: #1e1e24;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    height: 400px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-box canvas {
+    flex-grow: 1;
+    width: 100% !important;
+    height: calc(100% - 50px) !important;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+.filters button {
+    background-color: #2c2c35;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.filters button:hover {
+    background-color: #3498db;
+}
+
+.form-box {
+    background-color: #1e1e24;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-box h2 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    color: #aaa;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input, form select, form button {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background-color: #121214;
+    color: white;
+    font-size: 1rem;
+}
+
+form input:focus, form select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+form button {
+    background-color: #2ecc71;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+form button:hover {
+    background-color: #27ae60;
+}
+
+@media (max-width: 768px) {
+    .dashboard-layout { grid-template-columns: 1fr; }
+}

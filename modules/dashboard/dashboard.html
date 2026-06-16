@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Grafico</title>
+    <link rel="stylesheet" href="../../core/css/global.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Libro Giornale Digitale</h1>
+            <nav class="navigation">
+                <a href="dashboard.html" class="nav-btn active">📊 Dashboard</a>
+                <a href="../libro-giornale/libro-giornale.html" class="nav-btn">📖 Vai al Libro Giornale</a>
+            </nav>
+        </header>
+
+        <main class="dashboard-layout">
+            <div class="chart-box">
+                <div class="filters">
+                    <button onclick="changePeriod('daily')">Giornaliero</button>
+                    <button onclick="changePeriod('weekly')">Settimanale</button>
+                    <button onclick="changePeriod('monthly')">Mensile</button>
+                    <button onclick="changePeriod('yearly')">Annuale</button>
+                </div>
+                <canvas id="financialChart"></canvas>
+            </div>
+
+            <section class="form-box">
+                <h2>Nuova Operazione</h2>
+                <form id="transaction-form">
+                    <input type="date" id="date" required>
+                    <input type="text" id="description" placeholder="Descrizione (es. Spesa, Stipendio)" required>
+                    <input type="number" id="amount" placeholder="Importo (€)" step="0.01" required>
+                    
+                    <select id="method">
+                        <option value="Contanti">💵 Contanti</option>
+                        <option value="Carta">💳 Carta di Credito</option>
+                    </select>
+
+                    <select id="type">
+                        <option value="income">Guadagno (+)</option>
+                        <option value="expense">Spesa (-)</option>
+                    </select>
+                    <button type="submit">Registra</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="../../core/js/database.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

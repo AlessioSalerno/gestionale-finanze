@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Contabile</title>
+    <link rel="stylesheet" href="../../core/css/global.css">
+    <link rel="stylesheet" href="libro-giornale.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="no-print">
+            <h1>Registro Libro Giornale</h1>
+            <nav class="navigation">
+                <a href="../dashboard/dashboard.html" class="nav-btn">📊 Dashboard</a>
+                <a href="libro-giornale.html" class="nav-btn active">📖 Vai al Libro Giornale</a>
+            </nav>
+        </header>
+
+        <main class="ledger-box">
+            <!-- Barra degli strumenti con pulsanti Stampa/PDF -->
+            <div class="ledger-tools no-print">
+                <input type="text" id="search-desc" placeholder="Cerca descrizione..." oninput="filterLedger()">
+                <select id="filter-type" onchange="filterLedger()">
+                    <option value="all">Tutti i movimenti</option>
+                    <option value="income">Solo Guadagni (+)</option>
+                    <option value="expense">Solo Spese (-)</option>
+                </select>
+                <button onclick="window.print()" class="print-btn">🖨️ Stampa / Salva PDF</button>
+                <div class="balance-badge">Bilancio: <span id="total-balance">0.00 €</span></div>
+            </div>
+
+            <!-- Titolo visibile SOLO durante la stampa -->
+            <div class="print-header-title">
+                <h2>REGISTRO LIBRO GIORNALE</h2>
+                <hr>
+            </div>
+
+            <div class="table-scroll">
+                <table class="ledger-table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrizione</th>
+                            <th>Tipo</th>
+                            <th>Metodo</th>
+                            <th>Importo</th>
+                            <th class="no-print">Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ledger-body"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../core/js/database.js"></script>
+    <script src="libro-giornale.js"></script>
+</body>
+</html>
